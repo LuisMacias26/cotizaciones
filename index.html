@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizaciones LCNETWORK</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="contenedor">
+
+    <!-- Encabezado -->
+    <div class="encabezado">
+        <div class="empresa-info">
+            <img src="imagenes/logo.png" alt="LCNETWORK Logo" class="logo">
+            <div>
+                <h1>LUIS CALDERON</h1>
+                <p>Tel: 6665-3974 | Email: lcnetwork73@gmail.com | R.U.C 8-455-504 D.V. 20</p>
+            </div>
+        </div>
+        <div class="cotizacion-num">
+            <span>Cotización</span>
+            <input type="number" id="num-cotizacion" value="1" min="1">
+        </div>
+    </div>
+
+    <!-- Cliente y Detalles -->
+    <div class="grid-2">
+
+        <div class="seccion">
+            <h3>Cliente</h3>
+            <div class="campo">
+                <label>Nombre</label>
+                <input type="text" id="cliente-nombre" placeholder="Nombre del cliente">
+            </div>
+            <div class="campo">
+                <label>Dirección</label>
+                <input type="text" id="cliente-direccion" placeholder="Dirección">
+            </div>
+            <div class="grid-2">
+                <div class="campo">
+                    <label>Ciudad</label>
+                    <input type="text" id="cliente-ciudad" placeholder="Ciudad">
+                </div>
+                <div class="campo">
+                    <label>Provincia</label>
+                    <input type="text" id="cliente-provincia" placeholder="Provincia">
+                </div>
+            </div>
+            <div class="campo">
+                <label>Teléfono</label>
+                <input type="text" id="cliente-telefono" placeholder="Teléfono">
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h3>Detalles</h3>
+            <div class="campo">
+                <label>Fecha</label>
+                <input type="date" id="fecha">
+            </div>
+            <div class="campo">
+                <label>Vendedor</label>
+                <input type="text" id="vendedor" placeholder="Nombre del vendedor">
+            </div>
+            <div class="campo">
+                <label>Método de pago</label>
+                <select id="metodo-pago" title="Método de pago">
+                    <option value="">Seleccionar...</option>
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Cheque">Cheque</option>
+                    <option value="Transferencia">Transferencia</option>
+                    <option value="Tarjeta">Tarjeta</option>
+                </select>
+            </div>
+            <div class="campo">
+                <label>Caduca</label>
+                <input type="text" id="caduca" value="30 días de validez">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Tabla de productos -->
+    <div class="seccion">
+        <h3>Productos</h3>
+        <table id="tabla-productos">
+            <thead>
+                <tr>
+                    <th>Cantidad</th>
+                    <th>Descripción</th>
+                    <th>P. Unitario</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="productos-body">
+                <tr>
+                    <td><input type="number" class="cant" placeholder="1" min="0" title="Cantidad"></td>
+                    <td><input type="text" class="desc" placeholder="Descripción del producto" title="Descripción"></td>
+                    <td><input type="number" class="precio" placeholder="0.00" step="0.01" min="0" title="Precio unitario"></td>
+                    <td class="total-fila">$0.00</td>
+                    <td><button class="btn-eliminar" onclick="eliminarFila(this)">✕</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn-agregar" onclick="agregarFila()">+ Agregar producto</button>
+    </div>
+
+    <!-- Notas y Totales -->
+    <div class="grid-2">
+
+        <div class="seccion">
+            <h3>Notas</h3>
+            <div class="campo">
+                <label>Comentarios</label>
+                <textarea id="comentarios" placeholder="Comentarios..." rows="4"></textarea>
+            </div>
+            <div class="campo">
+                <label>Anotación del vendedor</label>
+                <textarea id="anotacion" placeholder="Anotación..." rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h3>Totales</h3>
+            <div class="total-row">
+                <span>Subtotal</span>
+                <span id="subtotal">$0.00</span>
+            </div>
+            <div class="total-row">
+                <label>Costo de envío</label>
+                <input type="number" id="costo-envio" placeholder="0.00" step="0.01" min="0" title="Costo de envío">
+            </div>
+            <div class="total-row">
+                <label>
+                    <input type="checkbox" id="aplicar-itbms"> Aplicar ITBMS (7%)
+                </label>
+                <span id="impuesto">$0.00</span>
+            </div>
+            <div class="total-final">
+                <span>TOTAL</span>
+                <span id="total">$0.00</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Firmas -->
+    <div class="firmas">
+        <p>Firma del Cotizante ----------------------------- Firma del cliente al aceptar -----------------------------</p>
+    </div>
+
+    <div class="cheque">
+        <p><strong>Favor Confeccionar cheque a nombre de LUIS CALDERON</strong></p>
+    </div>
+
+    <div class="garantia">
+        <p><em>Garantía Profesional</em></p>
+    </div>
+
+    
+    <button class="btn-exportar" onclick="exportarExcel()">
+        Exportar a Excel
+    </button>
+
+    <button class="btn-pdf" onclick="window.print()">
+    Guardar como PDF
+</button>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    padding: 2rem;
+}
+
+.contenedor {
+    background-color: #ffffff;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* Encabezado */
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #e63946;
+    margin-bottom: 1.5rem;
+}
+
+.empresa-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+.empresa-info h1 {
+    font-size: 1.5rem;
+    color: #1a1a2e;
+}
+
+.empresa-info p {
+    font-size: 0.8rem;
+    color: #666666;
+    margin-top: 4px;
+}
+
+.cotizacion-num {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.cotizacion-num span {
+    background-color: #e63946;
+    color: #ffffff;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.cotizacion-num input {
+    width: 80px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 4px;
+}
+
+/* Grid */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Secciones */
+.seccion {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.seccion h3 {
+    color: #e63946;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Campos */
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 0.75rem;
+}
+
+.campo label {
+    font-size: 0.8rem;
+    color: #666666;
+    font-weight: bold;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    padding: 0.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+    background-color: #ffffff;
+    transition: 0.3s;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    border-color: #e63946;
+}
+
+/* Tabla de productos */
+#tabla-productos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+#tabla-productos th {
+    background-color: #1a1a2e;
+    color: #ffffff;
+    padding: 0.6rem;
+    font-size: 0.85rem;
+    text-align: left;
+}
+
+#tabla-productos td {
+    padding: 0.4rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#tabla-productos input {
+    width: 100%;
+    padding: 0.4rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+#tabla-productos input:focus {
+    border-color: #e63946;
+}
+
+.total-fila {
+    font-weight: bold;
+    color: #1a1a2e;
+    font-size: 0.9rem;
+}
+
+.btn-eliminar {
+    background-color: #e63946;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.btn-agregar {
+    background-color: #1a1a2e;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.btn-agregar:hover {
+    background-color: #e63946;
+}
+
+/* Totales */
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 0.9rem;
+}
+
+.total-row input {
+    width: 100px;
+    padding: 0.3rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    text-align: right;
+    outline: none;
+}
+
+.total-final {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #e63946;
+}
+
+/* Firmas */
+.firmas {
+    border: 1px dashed #cccccc;
+    padding: 1.5rem;
+    text-align: center;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #666666;
+    font-size: 0.9rem;
+}
+
+.cheque {
+    background-color: #fff3cd;
+    padding: 0.75rem 1rem;
+    border-left: 4px solid #e63946;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.garantia {
+    text-align: center;
+    color: #666666;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* Botón exportar */
+.btn-exportar {
+    background-color: #e63946;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.btn-exportar:hover {
+    background-color: #1a1a2e;
+}
+
+.btn-pdf {
+    background-color: #1a1a2e;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 0.5rem;
+    transition: 0.3s;
+}
+
+.btn-pdf:hover {
+    background-color: #e63946;
+}
+
+@media print {
+    body { background-color: #ffffff; padding: 0; }
+    .btn-exportar, .btn-pdf, .btn-agregar, .btn-eliminar { display: none; }
+}
