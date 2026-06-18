@@ -124,3 +124,22 @@ function exportarExcel() {
     XLSX.utils.book_append_sheet(wb, ws, 'Cotización');
     XLSX.writeFile(wb, `Cotizacion-${numCot}.xlsx`);
 }
+
+// Ajustar altura del textarea según el contenido
+function ajustarAltura(textarea) {
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
+}
+
+function agregarFila() {
+    const tbody = document.getElementById('productos-body');
+    const fila = document.createElement('tr');
+    fila.innerHTML = `
+        <td><input type="number" class="cant" placeholder="1" min="0" title="Cantidad" oninput="calcularTotales()"></td>
+        <td><textarea class="desc" placeholder="Descripción del producto" title="Descripción" rows="1" oninput="ajustarAltura(this)"></textarea></td>
+        <td><input type="number" class="precio" placeholder="0.00" step="0.01" min="0" title="Precio unitario" oninput="calcularTotales()"></td>
+        <td class="total-fila">$0.00</td>
+        <td><button class="btn-eliminar" onclick="eliminarFila(this)">✕</button></td>
+    `;
+    tbody.appendChild(fila);
+}

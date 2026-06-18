@@ -295,3 +295,24 @@ body {
     body { background-color: #ffffff; padding: 0; }
     .btn-exportar, .btn-pdf, .btn-agregar, .btn-eliminar { display: none; }
 }
+
+#tabla-productos td {
+    vertical-align: top;
+}
+
+.desc {
+    width: 100%;
+    resize: none;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 0.4rem;
+    outline: none;
+    line-height: 1.4;
+}
+
+.desc:focus {
+    border-color: #e63946;
+}
