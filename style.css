@@ -285,21 +285,16 @@ body {
 }
 
 @media print {
-    body {
-        background-color: #ffffff;
-        padding: 0;
+    .desc {
+        overflow: visible !important;
+        height: auto !important;
+        white-space: pre-wrap;
     }
-
-    .btn-pdf,
-    .btn-agregar,
-    .btn-eliminar {
-        display: none;
+    
+    #tabla-productos td {
+        height: auto !important;
+        overflow: visible !important;
     }
-}
-
-#tabla-productos td {
-    vertical-align: top;
-    height: auto;
 }
 
 .desc {
@@ -317,6 +312,7 @@ body {
     padding: 0.4rem;
     outline: none;
     line-height: 1.4;
+    box-sizing: border-box; 
 }
 
 .desc:focus {

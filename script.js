@@ -61,3 +61,10 @@ function ajustarAltura(textarea) {
     textarea.style.height = (textarea.scrollHeight + 5) + 'px';
 }
 
+// Ajustar altura de todos los textareas existentes al cargar
+document.querySelectorAll('.desc').forEach(t => ajustarAltura(t));
+
+// Primera fila: agregar eventos que le faltaban
+document.querySelectorAll('#productos-body .cant, #productos-body .precio').forEach(input => {
+    input.addEventListener('input', calcularTotales);
+});
