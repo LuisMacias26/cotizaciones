@@ -58,6 +58,6 @@ document.querySelectorAll('.cant, .precio').forEach(input => {
 // Ajustar altura del textarea según el contenido
 function ajustarAltura(textarea) {
     textarea.style.height = 'auto';
-    textarea.style.height = textarea.scrollHeight + 'px';
+    textarea.style.height = (textarea.scrollHeight + 5) + 'px';
 }
 

@@ -255,23 +255,6 @@ body {
     font-size: 0.9rem;
 }
 
-/* Botón exportar */
-.btn-exportar {
-    background-color: #e63946;
-    color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    padding: 0.75rem 2rem;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%;
-    transition: 0.3s;
-}
-
-.btn-exportar:hover {
-    background-color: #1a1a2e;
-}
 
 .btn-pdf {
     background-color: #1a1a2e;
@@ -292,18 +275,32 @@ body {
 }
 
 @media print {
-    body { background-color: #ffffff; padding: 0; }
-    .btn-exportar, .btn-pdf, .btn-agregar, .btn-eliminar { display: none; }
+    body {
+        background-color: #ffffff;
+        padding: 0;
+    }
+
+    .btn-pdf,
+    .btn-agregar,
+    .btn-eliminar {
+        display: none;
+    }
 }
 
 #tabla-productos td {
     vertical-align: top;
+    height: auto;
 }
 
 .desc {
     width: 100%;
     resize: none;
-    overflow: hidden;
+    overflow-y: hidden;
+    min-height: 35px;
+    height: auto;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-break: break-word;
     font-family: Arial, sans-serif;
     font-size: 0.9rem;
     border: 1px solid #e0e0e0;
