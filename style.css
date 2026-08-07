@@ -290,10 +290,16 @@ body {
         height: auto !important;
         white-space: pre-wrap;
     }
-    
+
     #tabla-productos td {
         height: auto !important;
         overflow: visible !important;
+    }
+
+    .btn-pdf,
+    .btn-agregar,
+    .btn-eliminar {
+        display: none !important;
     }
 }
 
@@ -312,9 +318,31 @@ body {
     padding: 0.4rem;
     outline: none;
     line-height: 1.4;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 .desc:focus {
     border-color: #e63946;
+}
+
+/* Reemplazo del textarea al momento de imprimir/generar PDF.
+   Este div SÍ crece libremente con texto largo, a diferencia
+   del textarea, que recorta el contenido que no cabe en su caja. */
+.desc-print {
+    display: none;
+    width: 100%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+    padding: 0.4rem;
+    line-height: 1.4;
+    box-sizing: border-box;
+}
+
+@media print {
+    .desc-print {
+        display: block;
+    }
 }
