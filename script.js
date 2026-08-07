@@ -68,3 +68,35 @@ document.querySelectorAll('.desc').forEach(t => ajustarAltura(t));
 document.querySelectorAll('#productos-body .cant, #productos-body .precio').forEach(input => {
     input.addEventListener('input', calcularTotales);
 });
+
+/* =======================================================
+   ARREGLO: descripciones largas cortadas al imprimir/PDF
+   =======================================================
+   Los <textarea> recortan internamente el texto que no
+   entra en su caja visible, sin importar el CSS
+   (overflow, height, etc. no los "des-recortan" al imprimir).
+   Solución: justo antes de imprimir, se reemplaza cada
+   textarea de descripción por un <div> normal con el mismo
+   texto (los div sí crecen libremente con el contenido).
+   Al terminar de imprimir, se restaura el textarea editable.
+======================================================= */
+
+function prepararDescripcionesParaImprimir() {
+    document.querySelectorAll('.desc, #comentarios, #anotacion').forEach(textarea => {
+        const div = document.createElement('div');
+        div.className = 'desc-print';
+        div.textContent = textarea.value;
+        textarea.insertAdjacentElement('afterend', div);
+        textarea.style.display = 'none';
+    });
+}
+
+function restaurarDescripcionesTrasImprimir() {
+    document.querySelectorAll('.desc-print').forEach(div => div.remove());
+    document.querySelectorAll('.desc, #comentarios, #anotacion').forEach(textarea => {
+        textarea.style.display = '';
+    });
+}
+
+window.addEventListener('beforeprint', prepararDescripcionesParaImprimir);
+window.addEventListener('afterprint', restaurarDescripcionesTrasImprimir);
